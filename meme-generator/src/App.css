@@ -18,30 +18,37 @@ h1 {
   letter-spacing: -2.5px;
   margin-left: 40px;
 }
-img {
+.header>img {
   width: 31px;
   height: 26px;
   position: absolute;
-
+}
+main {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
 }
 .meme {
-  border: 5px solid pink;
-  width: 100vw;
-  margin-top: 36px;
-
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 17px;
 }
 input {
-  width: 230px;
-  height: 39px;
-  margin: 17px;
+  border-radius: 4px;
+  border: 1px solid #d5d5d8;
+  text-indent: 5px;
 }
 button {
-  width: 477px;
-  height: 40px;
   background-image: linear-gradient(#672280,#A626D3);
   color: white;
   font-size: 16px;
   font-weight: 700;
   border-radius: 4px;
-  border-color: transparent;
+  border: none;
+  grid-column: 1 / -1;
+}
+
+.meme--image {
+  align-self: center;
+  max-width: 50%;
 }
