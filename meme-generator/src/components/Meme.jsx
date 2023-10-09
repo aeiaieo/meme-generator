@@ -3,12 +3,19 @@ import memesData from '../memesData.jsx'
 
 export default function Meme(){
 
-const [memeImage, setMemeImage] = React.useState('')
+const [meme, setMeme] = React.useState({
+    topText:" ",
+    bottomText: " ",
+    randomImage: "http://i.imgflip.com/1bij.jpg"
+})
+
+const [allMemeImages, setAllMemeImages] = React.useState(memesData)
 
     function getMeme(){
-        const memesArray = memesData.data.memes
+        const memesArray = allMemeImages.data.memes
         const randomNum = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNum].url)
+        const url = memesArray[randomNum].url
+        setMeme(prevMeme => ({...prevMeme, randomImage: url}))
     }
     return(
         <main>
@@ -17,7 +24,7 @@ const [memeImage, setMemeImage] = React.useState('')
                 <input placeholder='bottom text'></input>
                 <button onClick={getMeme}>can i haz meme plz</button>
             </div>
-            <img src={memeImage} className='meme--image'/>
+            <img src={meme.randomImage} className='meme--image'/>
         </main>
     )
 }
